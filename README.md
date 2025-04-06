@@ -1,0 +1,7 @@
+# Enhancing Product Deduplication: A Comprehensive Approach
+
+When tackling the product deduplication challenge, I identified several key limitations in the original implementation. While the foundation was solid—using TF-IDF vectorization and cosine similarity—it relied solely on text similarity and employed a simplistic selection strategy that didn't truly consolidate information.
+
+My enhanced solution implements a multi-level matching strategy that combines exact matching on key identifiers (product ID, SKU, UPC) with brand+name matching and traditional text similarity. This approach dramatically improves both precision and recall while reducing computational complexity through blocking techniques that group similar products before comparison. For intelligent record selection, I developed a weighted scoring system that evaluates records based on field quality, completeness, text richness, and recency. Most importantly, rather than simply selecting one record and discarding others, my solution performs true consolidation through field-level merging—preserving the highest quality information from all duplicates to create enriched single entries.
+
+The architecture balances accuracy and scalability, with thoughtful considerations for handling billions of records through batch processing and efficient memory management. By combining these techniques, the solution maximizes available information while ensuring uniqueness, with a clear path to further scaling using distributed frameworks like Apache Spark for truly massive datasets.
